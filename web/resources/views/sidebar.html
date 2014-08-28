@@ -1,0 +1,49 @@
+<!-- Sidebar -->
+<div id="sidebar-wrapper" data-ng-controller="HeaderController">
+
+    <ul class="sidebar-nav" style="color:#ffffff">
+        <li class="sidebar-brand">
+            <a href="#">Qualitance Portal</a>
+        </li>
+        <li id="taburi">
+            <ul class="nav nav-tabs responsive" role="tablist">
+                <li class="{{ssProject}}">
+                    <a href="/calendar" role="tab" data-toggle="tab" ng-click="switchToP()">Projects</a>
+                </li>
+
+                <li class="{{ssEmployee}}">
+                    <a href="/calendar" role="tab" data-toggle="tab" ng-click="switchToE()">Employees</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <div class="tab-content responsive">
+                <div class="tab-pane {{ssProject}}" id="projects">
+                    <a class="cc" href="#/addproject">
+                        <span>Add Project</span>
+                    </a>
+                    <a class="cc" href="#/calendar">
+                        <span>View Projects</span>
+                    </a>
+                </div>
+
+                <div class="tab-pane {{ssEmployee}}" id="employees">
+                    <a class="cc" href="#/myProfile">
+                        <span>My Profile</span>
+                    </a>
+                    <a class="cc" href="#/leave">
+                        <span>Apply for Leave</span>
+                    </a>
+                    <a class="cc" href="#/timeSheet">
+                        <span>Timesheet</span>
+                    </a>
+                    <a class="cc" href="#/employeeTable">
+                        <span>View Employees</span>
+                    </a>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+</div>
+<!-- /#sidebar-wrapper -->

@@ -1,0 +1,58 @@
+<div class="well removewidth normalwidth">
+    <div class="panel-body">        
+            <div style="text-align: center">
+                <h1>Apply for Leave</h1>
+            </div>            
+            <form role="form">
+
+                <div class="form-group">
+                    <p><b>Number of Days</b></p>
+                    <input type="number" class="form-control" id="exampleInputNrOfDays" placeholder="Enter Number of Days">
+                </div>
+
+                <div class="form-group">
+                    <p><b>Leave Type</b></p>
+                    <select id="formInput3" class="form-control">
+                        <option value="" disabled selected>Select Leave Type</option>
+                        <option>Medical</option>
+                        <option>Casual</option>
+                        <option>Maternal</option>
+                        <option>Training</option>
+                        <option>Other Unpaid</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <p><b>Start Date</b></p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="input-group">
+                                <input type="text" id="dateStart" class="form-control" datepicker-popup="{{format}}" ng-model="project.startDate" is-open="openedStart" min-date="minDateStart" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="openStart($event)"><i class="glyphicon glyphicon-calendar"></i>
+                                    </button>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">                    
+                    <p><b>End Date</b></p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="input-group">
+                                <input type="text" id="dateEnd" class="form-control" datepicker-popup="{{format}}" ng-model="project.endDate" is-open="openedEnd" min-date="minDateEnd" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="openEnd($event)"><i class="glyphicon glyphicon-calendar"></i>
+                                    </button>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+            </form>              
+            <button type="button" class="btn btn-success" style="float:right" ng-click="">Send Request &nbsp;<span class="glyphicon glyphicon-ok-circle"></span></button>
+    </div>
+</div>   

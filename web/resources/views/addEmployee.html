@@ -1,0 +1,20 @@
+<div class="well removewidth normalwidth">
+    <div class="panel-body">
+        <div style="text-align: center">
+            <h1>Add Employee</h1>
+        </div>
+        <form role="form">
+
+            <div class="form-group">
+                <p><b>First Name</b></p>
+                <input type="name" class="form-control" id="exampleInputFName" placeholder="First Name" ng-model="employee.firstName">
+            </div>
+
+            <div class="form-group">
+                 <p><b>Last Name</b></p>
+                <input type="name" class="form-control" id="exampleInputLName" placeholder="Last name" ng-model="employee.lastName">
+            </div>            
+        </form>
+        <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="createEmployee()" style="float:right">Finish</button>
+    </div>
+</div>

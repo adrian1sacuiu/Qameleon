@@ -1,0 +1,35 @@
+<div class="panel-body well" ng-controller="TimeSheetCtrl">
+    <form id="form1" role="form">
+        <h2>My Timesheet</h2>
+        <div class="table-responsive">
+        
+    		<table class="table table-striped">
+                <tr>
+            		<th rowspan="2" style="vertical-align: middle">Project</th>
+            		<th rowspan="2" style="vertical-align: middle">Activity</th>
+            		<th rowspan="2" style="vertical-align: middle">Task/Notes</th>
+            		<th class="day-width">Mon</th>
+            		<th class="day-width">Tue</th>
+            		<th class="day-width">Wed</th>
+            		<th class="day-width">Thu</th>
+            		<th class="day-width">Fri</th>
+            		<th class="day-width">Sat</th>
+            		<th class="day-width">Sun</th>		
+    		    </tr>
+                <tr>  
+                    <th>00/00</th>
+                    <th>00/00</th>
+                    <th>00/00</th>
+                    <th>00/00</th>
+                    <th>00/00</th>
+                    <th>00/00</th>
+                    <th>00/00</th>        
+                </tr>                
+    	</table>       
+    </div>
+    <div  style="float: right">        
+        <button type="button" class="btn btn-primary btn-color" ng-click="switchToEditTimeSheet()">Edit</button>
+        <button type="submit" class="btn btn-primary btn-color">Submit</button>
+    </div>
+    </form>
+</div> 

@@ -1,0 +1,62 @@
+<div class="removewidth normalwidth">
+    <div class="panel-body well">
+        <div style="text-align: center">
+            <h1>Edit Employee</h1>
+        </div>
+
+        <form role="form"> 
+            <div class="form-group">
+                <p><b>Competency</b></p>
+                <select id="formInput2" class="form-control" ng-model="employee.compentences">
+                    <option value="" disabled selected>Select Competency</option>
+                    <option>Developer</option>
+                    <option>Quality Assurance</option>
+                    <option>Business Analyst</option>
+                    <option>Project Manager</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <p><b>Tags</b></p>
+                <tags-input id="exampleInputTags" placeholder="Enter Tags" ng-model="employee.tags"></tags-input>
+            </div>
+
+            <div class="form-group">
+                <p><b>Employee Level</b></p>
+                <select id="formInput2" class="form-control" ng-model="employee.level">
+                    <option value="" disabled selected>Select Level</option>
+                    <option>Junior</option>
+                    <option>Middle</option>
+                    <option>Senior</option>
+                </select>                
+            </div>
+
+            <div class="form-group">
+                <p><b>Contract Type</b></p>
+                <select id="formInput2" class="form-control" ng-model="employee.contractType">
+                    <option value="" disabled selected>Select Contract Type</option>
+                    <option>Part Time</option>
+                    <option>Full Time</option>
+                    <option>Project Based</option>
+                </select>                
+            </div>
+
+            <div class="form-group">
+                <p><b>Start Date</b></p>        
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="employee.startDate" is-open="openedStart" min-date="minDateStart" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close">
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="openStart($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-success" ng-click="editEmployee()" style="float:right">Save Changes</button>
+
+        </form>
+    </div>
+</div>

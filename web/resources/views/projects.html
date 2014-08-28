@@ -1,0 +1,79 @@
+<div style="width: 600px; margin: 0 auto" class="well">
+
+    <div style="text-align: center">
+        <h1>Add Project</h1>
+    </div>
+
+    <div class="panel-body" ng-init="firstPage = true">
+        <div id="firstpage" ng-show="firstPage">
+
+            <form role="form">                
+
+                <div class="form-group {{errorname}}">
+                    <p><b>Project Name</b></p>
+                    <input type="text" id="inputError1" class="form-control" placeholder="Name" ng-model="project.projectName">
+                </div>                
+
+                <div class="form-group {{errortype}}">
+                    <p><b>Type</b></p>
+                    <select id="formInput1" class="form-control" ng-model="project.type">
+                        <option value="" disabled selected>Select project type</option>
+                        <option>Firm</option>
+                        <option>Presumtive</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+
+        <div id="secondpage" ng-show="!firstPage">
+
+            <form role="form">
+
+                <div class="form-group">
+                    <p><b>Start Date</b></p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <input type="text" id="dateStart" class="form-control" datepicker-popup="{{format}}" ng-model="project.startDate" is-open="openedStart" min-date="minDateStart" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="openStart($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p><b>End Date</b></p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <input type="text" id="dateEnd" class="form-control" datepicker-popup="{{format}}" ng-model="project.endDate" is-open="openedEnd" min-date="minDateEnd" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="openEnd($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p><b>Description</b></p>
+                    <textarea class="form-control" rows="3" ng-model="project.description"></textarea>
+                </div>
+            </form>
+        </div>
+
+        <button type="button" class="btn btn-primary btn-default btn-color" style="float:left" ng-click="validProject() && (firstPage = !firstPage) || firstPage" ng-show="firstPage">
+                Add more details &nbsp;<span class="glyphicon glyphicon-chevron-right"></span>
+        </button>
+
+        <button type="button" class="btn btn-primary btn-default btn-color" style="float:left" ng-click="firstPage = !firstPage" ng-show="!firstPage">
+                <span class="glyphicon glyphicon-chevron-left"></span>&nbsp;Back
+        </button>
+
+        <button type="button" class="btn btn-success"  style="float:right" ng-click="validProject() && createProject() || (modaldiss = false)">Finish&nbsp;
+                <span class="glyphicon glyphicon-ok-circle"></span>
+        </button>
+    </div>
+</div>

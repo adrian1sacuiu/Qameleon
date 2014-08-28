@@ -1,0 +1,85 @@
+<div class="panel-body well" ng-controller="TimeSheetCtrl">
+    <form id="form1" role="form">
+        <h2>Edit Timesheet</h2>
+        <div class="table-responsive">
+        
+    		<table class="table table-striped">
+                <tr>
+            		<th rowspan="2" style="vertical-align: middle">Project</th>
+            		<th rowspan="2" style="vertical-align: middle">Activity</th>
+            		<th rowspan="2" style="vertical-align: middle">Task/Notes</th>
+            		<th>Mon</th>
+            		<th>Tue</th>
+            		<th>Wed</th>
+            		<th>Thu</th>
+            		<th>Fri</th>
+            		<th>Sat</th>
+            		<th>Sun</th>
+                    <th rowspan="2" style="vertical-align: middle">Action</th>		
+    		    </tr>
+                <tr>  
+                    <th>00/00</th>
+                    <th>00/00</th>
+                    <th>00/00</th>
+                    <th>00/00</th>
+                    <th>00/00</th>
+                    <th>00/00</th>
+                    <th>00/00</th>
+                           
+                </tr>
+                <tr class="s">
+                    <td class="d">  
+                        <select id="formInput5" class="form-control">
+                            <option>Select a project</option>
+                            <option>Qameleon</option>
+                            <option>Internal-Paid Non-Billable</option>
+                            <option>Internal-Unpaid Non-Billable</option>
+            				<option>Paid vacation-public holiday</option>
+                        </select>
+                    </td>
+                    <td class="d"> 
+                        <select id="formInput4" class="form-control">
+                            <option>Standby</option>
+                            <option>Regular</option>
+                            <option>Overtime</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" id="formInput2" placeholder="Enter notes">
+                    </td>
+            		<td class="day-width">
+                        <input type="text" class="form-control input-cent" id="formInput3">
+            		</td>
+            		<td class="day-width">
+                        <input type="text" class="form-control input-cent" id="formInput1" >
+            		</td>
+            		<td class="day-width">
+                        <input type="text" class="form-control input-cent" id="formInput1" >
+            		</td>
+            		<td class="day-width">
+                        <input type="text" class="form-control input-cent" id="formInput1" >
+            		</td>
+            		<td class="day-width">
+                        <input type="text" class="form-control input-cent" id="formInput1" >
+            		</td>
+            		<td class="day-width">
+                        <input type="text" class="form-control input-cent" id="formInput1" >
+            		</td>
+            		<td class="day-width">
+                        <input type="text" class="form-control input-cent" id="formInput1" >
+            		</td>
+                    <td class="day-width" style="text-align:center;vertical-align: middle">
+                        <button type="submit" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
+                    </td>
+                </tr>		
+    	</table>
+       
+    </div>
+    <div  style="float: right">
+        <button type="button" class="btn btn-primary btn-color" ng-click="switchToTimeSheet()">View Timesheet</button>
+        <button type="submit" class="btn btn-primary btn-color">Add row</button>        
+        <button type="submit" class="btn btn-primary btn-color">Save</button>
+    </div>
+    </form>
+</div> 
+  

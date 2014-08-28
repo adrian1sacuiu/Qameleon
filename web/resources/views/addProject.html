@@ -1,0 +1,104 @@
+<div class="well removewidth normalwidth">
+
+    <div ng-class="class" role="alert" ng-show="isAlert()">
+        <strong>{{alertTitle}}!</strong> {{alertContent}}.
+    </div>
+
+    <div style="text-align: center">
+        <h1>Add Project</h1>
+    </div>
+
+    <div class="panel-body">
+        <div id="firstpage" ng-show="isFirstPage()">
+
+            <form role="form">                
+
+                <div class="form-group {{errorname}}">
+                    <p><b>Project Name</b></p>
+                    <input type="text" id="inputError1" class="form-control" placeholder="Name" ng-model="project.name">
+                </div>                
+
+                <div class="form-group {{errortype}}">
+                    <p><b>Type</b></p>
+                    <select id="formInput1" class="form-control" ng-model="project.type">
+                        <option value="" disabled selected>Select project type</option>
+                        <option>Firm</option>
+                        <option>Presumtive</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+
+        <div id="secondpage" ng-show="!isFirstPage()">
+
+            <form role="form">
+
+                <div class="form-group">
+                    <p><b>Start Date</b></p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <input type="text" id="dateStart" class="form-control" datepicker-popup="{{format}}" ng-model="project.startDate" is-open="openedStart" min-date="minDateStart" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="openStart($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <p><b>End Date</b></p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <input type="text" id="dateEnd" class="form-control" datepicker-popup="{{format}}" ng-model="project.endDate" is-open="openedEnd" min-date="minDateEnd" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="openEnd($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p><b>Budget Type</b></p>
+                    <select id="formInput1" class="form-control" ng-model="project.budgetType">
+                        <option value="" disabled selected>Select budget type</option>
+                        <option>Hours</option>
+                        <option>Money</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <p><b>Budget Value</b></p>
+                    <input type="text" class="form-control" placeholder="{{project.budgetType}}" ng-model="project.budgetValue">
+                </div>
+
+                <div class="form-group">
+                    <p><b>Tags</b></p>
+                    <tags-input placeholder="Enter Project Tags" ng-model="projectTags"></tags-input>
+                </div>
+                {{project.tags}}
+
+
+                <div class="form-group">
+                    <p><b>Description</b></p>
+                    <textarea class="form-control" rows="3" ng-model="project.description"></textarea>
+                </div>
+            </form>
+        </div>
+
+        <button type="button" class="btn btn-primary btn-default btn-color" style="float:left" ng-click="validProject() && togglePage() || isFirstPage()" ng-show="isFirstPage()">
+                Add more details &nbsp;<span class="glyphicon glyphicon-chevron-right"></span>
+        </button>
+
+        <button type="button" class="btn btn-primary btn-default btn-color" style="float:left" ng-click="togglePage()" ng-show="!isFirstPage()">
+                <span class="glyphicon glyphicon-chevron-left"></span>&nbsp;Back
+        </button>
+
+        <button type="button" class="btn btn-success"  style="float:right" ng-click="validProject() && createProject() || (modaldiss = false)">Finish&nbsp;
+                <span class="glyphicon glyphicon-ok-circle"></span>
+        </button>
+    </div>
+</div>

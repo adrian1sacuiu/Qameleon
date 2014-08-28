@@ -1,0 +1,29 @@
+<table class="table table-bordered table-striped" data-ng-controller="EmployeeCtrl">
+	<tr>
+		<td><b>First Name</b></td>
+		<td><b>Last Name</b></td>
+		<td><b>Email</b></td>
+		<td><b>Username</b></td>
+		<td><b>Employee Type</b></td>
+		<td><b>Level</b></td>
+		<td><b>Competency</b></td>
+		<td><b>Competence level</b></td>
+		<td><b>Tags</b></td>
+		<td><b>Start Date</b></td>
+		<td><b>Delete</b></td>
+	</tr>
+
+	<tr data-ng-repeat="e in employeeList">
+		<td>{{e.firstName}}</td>
+		<td>{{e.lastName}}</td>
+		<td>{{e.email}}</td>
+		<td>{{e.username}}</td>
+		<td>{{e.employeeType}}</td>
+		<td>{{e.level}}</td>
+		<td>{{e.competency}}</td>
+		<td>{{e.competencyLevel}}</td>
+		<td>{{e.tags}}</td>
+		<td>{{e.startDate}}</td>
+		<td style="text-align:center"><button type="submit" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button></td>
+	</tr>
+</table> 
