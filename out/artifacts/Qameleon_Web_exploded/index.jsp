@@ -30,7 +30,7 @@
 </head>
 
 <body>
-
+	<div data-ng-controller="LoginCtrl">
     <header data-ng-include="'/resources/views/header.html'"></header>
     <div id="wrapper" >
         <div data-ng-include="'/resources/views/sidebar.html'"></div>
@@ -41,6 +41,7 @@
             </div>
         </div>
     </div>
+	</div>
 
 <script src="<c:url value="/resources/lib/jquery/jquery-1.11.0.min.js"/>"></script>
 <script src="<c:url value="/resources/lib/angular/angular.min.js"/>"></script>
@@ -55,6 +56,7 @@
 <script src="<c:url value="/resources/lib/angular-strap/angular-strap.min.js"/>"></script>
 <script src="<c:url value="/resources/lib/angular-strap/angular-strap.tpl.min.js"/>"></script>
 <script src="<c:url value="/resources/lib/angular-gantt.js" />"></script>
+<script src="<c:url value="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.1/angular-cookies.min.js"/>"></script>
 
 <script src="<c:url value="/resources/scripts/app.js"/>"></script>
 
@@ -65,6 +67,7 @@
 <script src="<c:url value="/resources/scripts/controllers/restController.js"/>"></script>
 <script src="<c:url value="/resources/scripts/controllers/calendarController.js"/>"></script>
 <script src="<c:url value="/resources/scripts/controllers/timeSheetController.js"/>"></script>
+<script src="<c:url value="/resources/scripts/controllers/loginController.js"/>"></script>
 
 <script src="<c:url value="/resources/scripts/services/fireService.js"/>"></script>
 <script src="<c:url value="/resources/scripts/services/projectService.js"/>"></script>
