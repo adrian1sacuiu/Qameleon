@@ -58,4 +58,26 @@ public class EmployeeController {
         System.out.println("Employee created: "+employee);
         return employee;
     }
+
+    @RequestMapping(value = "/editEmployee", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
+    public @ResponseBody Employee editEmployee(@RequestBody Employee employee, HttpServletResponse response){
+        Employee error = new Employee();
+        if(employeeService.getEmployeeByUsername(employee.getUsername()) != null){
+            error.setErrorMessage("Error: Username already taken.");
+            return error;
+        }
+        else if(employeeService.getEmployeeByEmail(employee.getEmail()) !=null){
+            error.setErrorMessage("Error: Email already taken.");
+            return error;
+        }
+        employeeService.updateEmployee(employee);
+        response.setStatus(HttpServletResponse.SC_OK);
+        System.out.println("Employee updated: "+employee);
+        return employee;
+    }
+    @RequestMapping(value = "/deleteEmployee", method = RequestMethod.DELETE)
+    public void deleteEmployee(Long id, HttpServletResponse response){
+        employeeService.deleteEmployee(id);
+        response.setStatus(HttpServletResponse.SC_OK);
+    }
 }

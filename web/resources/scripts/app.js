@@ -17,7 +17,8 @@ var app = angular.module('qameleonApp', [
     'ngAnimate', 
     'ngSanitize', 
     'mgcrea.ngStrap', 
-    'gantt'
+    'gantt',
+	'ngCookies'
 
 
 ])

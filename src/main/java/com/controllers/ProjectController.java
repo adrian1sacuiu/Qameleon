@@ -47,4 +47,23 @@ public class ProjectController {
         System.out.println("Project created: "+project);
         return project;
     }
+
+    @RequestMapping(value = "/editProject", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
+    public @ResponseBody Project editProject(@RequestBody Project project, HttpServletResponse response){
+        Project error = new Project();
+        if(projectService.getProjectByName(project.getName()) != null){
+            error.setErrorMessage("Error: Project name already taken.");
+            return error;
+        }
+        projectService.updateProject(project);
+        response.setStatus(HttpServletResponse.SC_OK);
+        System.out.println("Project updated: "+project);
+        return project;
+    }
+    @RequestMapping(value = "/deleteProject", method = RequestMethod.DELETE)
+    public void deleteProject(Long id, HttpServletResponse response){
+        projectService.deleteProject(id);
+        response.setStatus(HttpServletResponse.SC_OK);
+    }
 }
+
