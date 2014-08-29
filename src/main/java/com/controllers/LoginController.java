@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -39,7 +40,7 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/employees/authenticate")
-    public ModelAndView login(Model model, HttpServletRequest request){
+    public ModelAndView login(Model model, HttpServletRequest request, HttpServletResponse response){
         ModelAndView mv = new ModelAndView("redirect:/#/login");
         try {
             GenericJson userInfo = googleAuthHelper.getUserInfoJson(request.getParameter("code"));
@@ -48,7 +49,7 @@ public class LoginController {
                 return mv;
             }
             else{
-                request.getSession().setAttribute("employee",employee);
+                request.getSession().setAttribute("employee", employee);
                 mv.setView(new RedirectView("/index.jsp"));
                 return mv;
             }
