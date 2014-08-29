@@ -4,25 +4,16 @@ import com.domain.Employee;
 import com.google.api.client.json.GenericJson;
 import com.misc.GoogleAuthHelper;
 import com.services.EmployeeService;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedReader;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.regex.Pattern;
 
 /**
  * Created by adrian.sacuiu on 8/25/2014.
@@ -40,7 +31,7 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/employees/authenticate")
-    public ModelAndView login(Model model, HttpServletRequest request, HttpServletResponse response){
+    public ModelAndView login(Model model, HttpServletRequest request){
         ModelAndView mv = new ModelAndView("redirect:/#/login");
         try {
             GenericJson userInfo = googleAuthHelper.getUserInfoJson(request.getParameter("code"));
@@ -49,7 +40,10 @@ public class LoginController {
                 return mv;
             }
             else{
-                request.getSession().setAttribute("employee", employee);
+                HttpSession session = request.getSession(true);
+                session.setAttribute("employee", employee);
+                System.out.println(session == null);
+                System.out.println(session.getAttribute("employee"));
                 mv.setView(new RedirectView("/index.jsp"));
                 return mv;
             }

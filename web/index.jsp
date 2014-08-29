@@ -67,7 +67,7 @@
 <script src="<c:url value="/resources/scripts/controllers/restController.js"/>"></script>
 <script src="<c:url value="/resources/scripts/controllers/calendarController.js"/>"></script>
 <script src="<c:url value="/resources/scripts/controllers/timeSheetController.js"/>"></script>
-<script src="<c:url value="scripts/controllers/loginController.js"/>"></script>
+<script src="<c:url value="/resources/scripts/controllers/loginController.js"/>"></script>
 
 <script src="<c:url value="/resources/scripts/services/fireService.js"/>"></script>
 <script src="<c:url value="/resources/scripts/services/projectService.js"/>"></script>
