@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2254338917">
+  <component name="DataSourceManagerImpl" format="xml" hash="2644824710">
     <data-source source="LOCAL" name="MySQL - qameleon@localhost" uuid="2c7c3015-614a-4291-bb2b-46bfd7b06dc7">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>

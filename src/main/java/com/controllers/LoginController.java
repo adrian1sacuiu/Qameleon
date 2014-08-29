@@ -59,5 +59,9 @@ public class LoginController {
         }
     }
 
+    @RequestMapping(value = "/login")
+    public String redirectLogin(){
+        return "/resources/views/login.jsp";
+    }
 
 }
