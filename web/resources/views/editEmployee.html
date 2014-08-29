@@ -4,10 +4,20 @@
             <h1>Edit Employee</h1>
         </div>
 
-        <form role="form"> 
+        <form role="form" ng-init="initCurrentEmployee(adrian_sacuiu)"> 
+            <div class="form-group">
+                <p><b>Email</b></p>
+                <input type="name" class="form-control" id="exampleInputFName" placeholder="Email" ng-model="currentEmployee[0].email">
+            </div>
+
+            <div class="form-group">
+                <p><b>First Name</b></p>
+                <input type="name" class="form-control" id="exampleInputFName" placeholder="First Name" ng-model="currentEmployee[0].firstName">
+            </div>
+
             <div class="form-group">
                 <p><b>Competency</b></p>
-                <select id="formInput2" class="form-control" ng-model="employee.compentences">
+                <select id="formInput2" class="form-control" ng-model="currentEmployee.compentences">
                     <option value="" disabled selected>Select Competency</option>
                     <option>Developer</option>
                     <option>Quality Assurance</option>
@@ -18,12 +28,12 @@
 
             <div class="form-group">
                 <p><b>Tags</b></p>
-                <tags-input id="exampleInputTags" placeholder="Enter Tags" ng-model="employee.tags"></tags-input>
+                <tags-input id="exampleInputTags" placeholder="Enter Tags" ng-model="currentEmployee.tags"></tags-input>
             </div>
 
             <div class="form-group">
                 <p><b>Employee Level</b></p>
-                <select id="formInput2" class="form-control" ng-model="employee.level">
+                <select id="formInput2" class="form-control" ng-model="currentEmployee.level">
                     <option value="" disabled selected>Select Level</option>
                     <option>Junior</option>
                     <option>Middle</option>
@@ -33,7 +43,7 @@
 
             <div class="form-group">
                 <p><b>Contract Type</b></p>
-                <select id="formInput2" class="form-control" ng-model="employee.contractType">
+                <select id="formInput2" class="form-control" ng-model="currentEmployee.contractType">
                     <option value="" disabled selected>Select Contract Type</option>
                     <option>Part Time</option>
                     <option>Full Time</option>
@@ -46,7 +56,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="input-group">
-                            <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="employee.startDate" is-open="openedStart" min-date="minDateStart" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close">
+                            <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="currentEmployee.startDate" is-open="openedStart" min-date="minDateStart" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close">
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-default" ng-click="openStart($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                             </span>

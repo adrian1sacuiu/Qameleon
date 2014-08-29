@@ -1,20 +1,31 @@
 'use strict';
 
 angular.module('qameleonApp.controllers.employee', ['qameleonApp.services.employee'])
-    .controller('EmployeeCtrl', ['$scope', '$routeParams', '$location', 'Employee',
-        function($scope, $routeParams, $location, Employee) {
+    .controller('EmployeeCtrl', ['$scope', '$routeParams', '$location', 'Employee', 'EmployeeId',
+        function($scope, $routeParams, $location, Employee, EmployeeId) {
 
             $scope.employee = {
                 firstName: '',
                 lastName: '',
-                email: '',                
-                username: '',
-                
+                email: '',
+                username: ''
+
             };
+
+            $scope.editedEmployee = {                
+                employeeType: '',                
+                level: '',
+                compentences: '',
+                competenceLevel: '',
+                tags: '',
+                startDate: '',
+                contractType: ''
+            };
+
 
             $scope.employeeList = [];
 
-            var e = Employee.query(function(empl, getResponseHeaders){
+            var e = Employee.query(function(empl, getResponseHeaders) {
                 console.log(empl);
                 return empl;
             });
@@ -32,7 +43,9 @@ angular.module('qameleonApp.controllers.employee', ['qameleonApp.services.employ
             }
 
             $scope.findEmployee = function(uname) {
-                $scope.currentEmployee = Employee.query({id: uname});
+                $scope.currentEmployee = EmployeeId.query({
+                    id: uname
+                });
                 console.log($scope.currentEmployee);
             }
 
@@ -47,10 +60,10 @@ angular.module('qameleonApp.controllers.employee', ['qameleonApp.services.employ
                     $scope.employee = {
                         firstName: '',
                         lastName: '',
-                        email: '',                        
+                        email: '',
                         username: '',
-                        
-            };
+
+                    };
 
 
                 }, function(err) {
@@ -58,26 +71,19 @@ angular.module('qameleonApp.controllers.employee', ['qameleonApp.services.employ
                 })
             }
 
-            $scope.editEmployee = function(){
-                var empl = new Employee($scope.employee);
-                empl.$update(function(empl, putResponseHeaders) {
-                    $scope.data = empl;
-                    console.log($scope.data);
+            $scope.initCurrentEmployee = function(username){
+                $scope.currentEmployee = EmployeeId.query({
+                    id: username                    
+                });
+                console.log($scope.currentEmployee);
+            }
 
-                    $scope.employee = {
-                        firstName: '',
-                        lastName: '',
-                        email: '',
-                        employeeType: '',
-                        username: '',
-                        level: '',
-                        compentences:'',
-                        competenceLevel: '',
-                        tags: '',
-                        startDate: '',
-                        contractType: ''
-            };
-
+            $scope.editEmployee = function() {
+                console.log($scope.currentEmployee);
+                var updt = new EmployeeId($scope.currentEmployee[0]);
+                updt.$update(function(updt, putResponseHeaders) {
+                    $scope.data = updt;
+                    console.log($scope.data);  
 
                 }, function(err) {
                     console.log("Error: " + err.status + " " + err.statusText);
@@ -85,7 +91,9 @@ angular.module('qameleonApp.controllers.employee', ['qameleonApp.services.employ
             }
 
             $scope.removeEmployee = function(uname) {
-                Employee.remove({id: uname});
+                EmployeeId.remove({
+                    id: uname
+                });
             }
 
 
@@ -95,4 +103,5 @@ angular.module('qameleonApp.controllers.employee', ['qameleonApp.services.employ
                 $scope.openedStart = true;
             };
 
-        }]);
+        }
+    ]);
